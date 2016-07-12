@@ -68,13 +68,7 @@ void set_freq(long frequency)
   
   AD9837Val = (((float)(frequency))/25000000);
   FREQ0_REG0 = AD9837Val*0x10000000;
-  
-  
-  Serial.println("");
-  Serial.print("FREQ0_REG0 is ");
-  Serial.print(FREQ0_REG0);
-  Serial.println("");
-  
+
   MSB = (int)((FREQ0_REG0 & 0xFFFC000)>>14); //14 bits
   LSB = (int)(FREQ0_REG0 & 0x3FFF);
   
